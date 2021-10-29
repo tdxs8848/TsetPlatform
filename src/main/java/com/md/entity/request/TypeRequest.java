@@ -8,8 +8,9 @@ import lombok.Data;
 @Data
 @ApiModel("分类请求类")
 public class TypeRequest {
-
-    @ApiModelProperty("用户名")
+    @ApiModelProperty("分类id")
+    private Long id;
+    @ApiModelProperty("分类名称")
     private String name;
 
 

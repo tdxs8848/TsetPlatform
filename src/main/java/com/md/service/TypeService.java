@@ -9,4 +9,6 @@ import java.util.List;
 public interface TypeService extends IService<Type> {
     Type addType(TypeRequest typeRequest);
     List<Type> searchType(String TypeName);
+    Type updateType(TypeRequest typeRequest);
+    Type deleteByTypeId(Long id);
 }

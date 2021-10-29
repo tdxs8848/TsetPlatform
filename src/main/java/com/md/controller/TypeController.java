@@ -45,6 +45,21 @@ public class TypeController {
         List<Type> typelist = typeService.searchType(tr.getName());
         return ResultGenerator.genSuccess(typelist);
     }
+//    更新示例
+    @PostMapping("/updatetype")
+    public ApiResult updatetype(@RequestBody TypeRequest tr){
+        Type type = typeService.updateType(tr);
+        return ResultGenerator.genSuccess(type);
+    }
+//    删除示例
+    @PostMapping("/delete")
+    public ApiResult deleteType(@RequestBody Long id){
+        Type type = typeService.getById(id);
+        typeService.deleteByTypeId(id);
+        return ResultGenerator.genSuccess(type);
+
+    }
+
 
     @GetMapping("/typelist")
     @CrossOrigin
