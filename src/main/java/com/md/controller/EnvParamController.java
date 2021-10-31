@@ -20,7 +20,7 @@ public class EnvParamController {
     public ApiResult addEnvparam(@RequestBody EnvParamRequest envParamRequest)  {
         EnvParam envParam = envParamService.addEnvparam(envParamRequest);
         envParamService.save(envParam);
-        return ResultGenerator.genSuccess(envParam);
+        return ResultGenerator.genSuccess();
     }
 
     @GetMapping("/envparamList")
@@ -37,9 +37,9 @@ public class EnvParamController {
         return ResultGenerator.genSuccess(envParam);
     }
 
-    @PostMapping("/deleteEnvparam")
+    @GetMapping("/deleteEnvparam")
     @CrossOrigin
-    public ApiResult deleteEnvparam(@RequestBody Long id){
+    public ApiResult deleteEnvparam(Long id){
         EnvParam envParam = envParamService.deleteByEnvparamId(id);
         return ResultGenerator.genSuccess(envParam);
     }

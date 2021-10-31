@@ -34,11 +34,9 @@ public class EnvParamImpl extends ServiceImpl<EnvParamMapper, EnvParam> implemen
         if(envParam == null){
             throw new GlobalException(ApiEnums.ERROR_ID_TO_UPDATE);
         }
-        envParam.setEnv(envParamRequest.getEnv());
-        envParam.setUrl(envParamRequest.getUrl());
-        envParamMapper.updateById(envParam);
         BeanUtils.copyProperties(envParamRequest, envParam);
-        return envParam;
+        envParamMapper.updateById(envParam);
+        return envParamMapper.selectById(envParam.getId());
     }
 
     @Override

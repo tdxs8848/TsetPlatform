@@ -2,10 +2,16 @@ package com.md.dto;
 
 import com.md.emuns.ApiEnums;
 
+import java.util.List;
+
 public class ResultGenerator {
 
     //返回一个成功的结果
     public static ApiResult genSuccess(Object data){
+        return new ApiResult(ApiEnums.SUCCESS,data);
+    }
+
+    public static ApiResult genSuccess(List data){
         return new ApiResult(ApiEnums.SUCCESS,data);
     }
 

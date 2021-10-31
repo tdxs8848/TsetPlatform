@@ -3,6 +3,8 @@ package com.md.dto;
 import com.md.emuns.ApiEnums;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ApiResult<T> {
 
@@ -14,6 +16,9 @@ public class ApiResult<T> {
 
     //返回的数据
     private T data;
+
+
+    private int tolal;
 
     public ApiResult(){
 
@@ -32,6 +37,13 @@ public class ApiResult<T> {
     public ApiResult(ApiEnums apiEnums){
         this.code = apiEnums.getCode();
         this.message = apiEnums.getMessage();
+    }
+
+    public ApiResult(ApiEnums apiEnums, List data){
+        this.code = apiEnums.getCode();
+        this.message = apiEnums.getMessage();
+        this.tolal = data.size();
+        this.data = (T)data;
     }
 
     public ApiResult(int code ,String message,T data){
